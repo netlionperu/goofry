@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"/>
+  <title>PET SHOP GOOFRY — Tienda</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+
+  <header class="topbar">
+    <a href="index.html" class="logo">
+      <div class="logo-icon">🐾</div>
+      <span class="logo-name">PET SHOP GOOFRY<small>Tienda</small></span>
+    </a>
+    <div class="tb-right">
+      <button class="ib" onclick="openCart()">🛒<span class="bdg">0</span></button>
+    </div>
+  </header>
+
+  <div class="search-wrap">
+    <div class="search-box">
+      <span>🔍</span>
+      <input type="text" placeholder="Buscar productos..." oninput="filterBySearch(this.value)"/>
+    </div>
+  </div>
+
+  <div class="filter-tabs">
+    <button class="ftab on" onclick="filterByTab(this,'todos')">Todos</button>
+    <button class="ftab" onclick="filterByTab(this,'perros')">🐶 Perros</button>
+    <button class="ftab" onclick="filterByTab(this,'gatos')">🐱 Gatos</button>
+    <button class="ftab" onclick="filterByTab(this,'conejos')">🐰 Conejos</button>
+    <button class="ftab" onclick="filterByTab(this,'hamsters')">🐹 Hámsters</button>
+    <button class="ftab" onclick="filterByTab(this,'aves')">🐦 Aves</button>
+    <button class="ftab" onclick="filterByTab(this,'peces')">🐟 Peces</button>
+  </div>
+
+  <div class="prod-grid" id="prod-grid">
+
+    <!-- PERROS -->
+    <div class="pgc" data-cat="perros">
+      <div class="pgc-img"><span class="pgc-badge">Popular</span>🥩</div>
+      <div class="pgc-body"><div class="pgc-cat">Perros · Alimento</div><div class="pgc-nm">Royal Canin Adult Maxi 15kg</div>
+      <div class="pgc-foot"><span class="pgc-price">S/ 89.90</span><button class="add-btn" onclick="addToCart(this,'Royal Canin Adult Maxi',89.90,'🥩')">+</button></div></div>
+    </div>
+    <div class="pgc" data-cat="perros">
+      <div class="pgc-img">🛏️</div>
+      <div class="pgc-body"><div class="pgc-cat">Perros · Descanso</div><div class="pgc-nm">Cama Ortopédica Premium</div>
+      <div class="pgc-foot"><span class="pgc-price">S/ 129.00</span><button class="fav-btn" data-name="Cama Ortopédica Premium" onclick="toggleFav(this,'Cama Ortopédica Premium',129.00,'🛏️','Perros · Descanso')">🤍</button></div></div>
+    </div>
+    <div class="pgc" data-cat="perros">
+      <div class="pgc-img">🦮</div>
+      <div class="pgc-body"><div class="pgc-cat">Perros · Paseo</div><div class="pgc-nm">Arnés Antipull Reflectante</div>
+      <div class="pgc-foot"><span class="pgc-price">S/ 55.00</span><button class="add-btn" onclick="addToCart(this,'Arnés Antipull',55.00,'🦮')">+</button></div></div>
+    </div>
+    <div class="pgc" data-cat="perros">
+      <div class="pgc-img"><span class="pgc-badge new">Nuevo</span>🎾</div>
+      <div class="pgc-body"><div class="pgc-cat">Perros · Juguetes</div><div class="pgc-nm">Set Kong & Pelotas x3</div>
+      <div class="pgc-foot"><span class="pgc-price">S/ 38.00</span><button class="add-btn" onclick="addToCart(this,'Set Kong & Pelotas',38.00,'🎾')">+</button></div></div>
+    </div>
+
+    <!-- GATOS -->
+    <div class="pgc" data-cat="gatos">
+      <div class="pgc-img">🐾</div>
+      <div class="pgc-body"><div class="pgc-cat">Gatos · Juguetes</div><div class="pgc-nm">Set Juguetes Interactivos</div>
+      <div class="pgc-foot"><span class="pgc-price">S/ 45.00</span><button class="add-btn" onclick="addToCart(this,'Set Juguetes Gato',45.00,'🐾')">+</button></div></div>
+    </div>
+    <div class="pgc" data-cat="gatos">
+      <div class="pgc-img"><span class="pgc-badge sale">Oferta</span>🎀</div>
+      <div class="pgc-body"><div class="pgc-cat">Gatos · Alimento</div><div class="pgc-nm">Whiskas Kitten 1.5kg</div>
+      <div class="pgc-foot"><span class="pgc-price">S/ 32.50</span><button class="add-btn" onclick="addToCart(this,'Whiskas Kitten',32.50,'🎀')">+</button></div></div>
+    </div>
+    <div class="pgc" data-cat="gatos">
+      <div class="pgc-img">🏠</div>
+      <div class="pgc-body"><div class="pgc-cat">Gatos · Descanso</div><div class="pgc-nm">Árbol Rascador 5 niveles</div>
+      <div class="pgc-foot"><span class="pgc-price">S/ 189.00</span><button class="fav-btn" data-name="Árbol Rascador 5 niveles" onclick="toggleFav(this,'Árbol Rascador 5 niveles',189.00,'🏠','Gatos · Descanso')">🤍</button></div></div>
+    </div>
+    <div class="pgc" data-cat="gatos">
+      <div class="pgc-img">🐟</div>
+      <div class="pgc-body"><div class="pgc-cat">Gatos · Alimento</div><div class="pgc-nm">Pro Plan Sensitive 3kg</div>
+      <div class="pgc-foot"><span class="pgc-price">S/ 74.00</span><button class="add-btn" onclick="addToCart(this,'Pro Plan Sensitive',74.00,'🐟')">+</button></div></div>
+    </div>
+
+    <!-- CONEJOS -->
+    <div class="pgc" data-cat="conejos">
+      <div class="pgc-img"><span class="pgc-badge new">Nuevo</span>🥕</div>
+      <div class="pgc-body"><div class="pgc-cat">Conejos · Alimento</div><div class="pgc-nm">Pellets Premium Conejo 2kg</div>
+      <div class="pgc-foot"><span class="pgc-price">S/ 35.00</span><button class="add-btn" onclick="addToCart(this,'Pellets Conejo 2kg',35.00,'🥕')">+</button></div></div>
+    </div>
+    <div class="pgc" data-cat="conejos">
+      <div class="pgc-img">🌿</div>
+      <div class="pgc-body"><div class="pgc-cat">Conejos · Alimento</div><div class="pgc-nm">Heno Timothy Premium 500g</div>
+      <div class="pgc-foot"><span class="pgc-price">S/ 28.00</span><button class="add-btn" onclick="addToCart(this,'Heno Timothy 500g',28.00,'🌿')">+</button></div></div>
+    </div>
+    <div class="pgc" data-cat="conejos">
+      <div class="pgc-img">🏡</div>
+      <div class="pgc-body"><div class="pgc-cat">Conejos · Hábitat</div><div class="pgc-nm">Jaula XL con Bandeja Deslizable</div>
+      <div class="pgc-foot"><span class="pgc-price">S/ 165.00</span><button class="fav-btn" data-name="Jaula XL Conejos" onclick="toggleFav(this,'Jaula XL Conejos',165.00,'🏡','Conejos · Hábitat')">🤍</button></div></div>
+    </div>
+    <div class="pgc" data-cat="conejos">
+      <div class="pgc-img">🎀</div>
+      <div class="pgc-body"><div class="pgc-cat">Conejos · Accesorios</div><div class="pgc-nm">Comedero Antivuelco Cerámico</div>
+      <div class="pgc-foot"><span class="pgc-price">S/ 22.00</span><button class="add-btn" onclick="addToCart(this,'Comedero Cerámico',22.00,'🎀')">+</button></div></div>
+    </div>
+
+    <!-- HÁMSTERS -->
+    <div class="pgc" data-cat="hamsters">
+      <div class="pgc-img"><span class="pgc-badge sale">Oferta</span>🌾</div>
+      <div class="pgc-body"><div class="pgc-cat">Hámsters · Alimento</div><div class="pgc-nm">Mix Semillas Hámster 500g</div>
+      <div class="pgc-foot"><span class="pgc-price">S/ 22.00</span><button class="add-btn" onclick="addToCart(this,'Mix Semillas Hámster',22.00,'🌾')">+</button></div></div>
+    </div>
+    <div class="pgc" data-cat="hamsters">
+      <div class="pgc-img">🌻</div>
+      <div class="pgc-body"><div class="pgc-cat">Hámsters · Alimento</div><div class="pgc-nm">Snacks Girasol & Frutas 200g</div>
+      <div class="pgc-foot"><span class="pgc-price">S/ 15.00</span><button class="add-btn" onclick="addToCart(this,'Snacks Girasol & Frutas',15.00,'🌻')">+</button></div></div>
+    </div>
+    <div class="pgc" data-cat="hamsters">
+      <div class="pgc-img"><span class="pgc-badge new">Nuevo</span>🎡</div>
+      <div class="pgc-body"><div class="pgc-cat">Hámsters · Accesorios</div><div class="pgc-nm">Rueda Silenciosa 21cm</div>
+      <div class="pgc-foot"><span class="pgc-price">S/ 42.00</span><button class="add-btn" onclick="addToCart(this,'Rueda Silenciosa 21cm',42.00,'🎡')">+</button></div></div>
+    </div>
+    <div class="pgc" data-cat="hamsters">
+      <div class="pgc-img">🏠</div>
+      <div class="pgc-body"><div class="pgc-cat">Hámsters · Hábitat</div><div class="pgc-nm">Jaula Modular con Túneles</div>
+      <div class="pgc-foot"><span class="pgc-price">S/ 88.00</span><button class="fav-btn" data-name="Jaula Modular Hámster" onclick="toggleFav(this,'Jaula Modular Hámster',88.00,'🏠','Hámsters · Hábitat')">🤍</button></div></div>
+    </div>
+
+    <!-- AVES -->
+    <div class="pgc" data-cat="aves">
+      <div class="pgc-img">🦜</div>
+      <div class="pgc-body"><div class="pgc-cat">Aves · Alimento</div><div class="pgc-nm">Mezcla Premium Tropical 1kg</div>
+      <div class="pgc-foot"><span class="pgc-price">S/ 28.00</span><button class="add-btn" onclick="addToCart(this,'Mezcla Tropical 1kg',28.00,'🦜')">+</button></div></div>
+    </div>
+    <div class="pgc" data-cat="aves">
+      <div class="pgc-img">🪺</div>
+      <div class="pgc-body"><div class="pgc-cat">Aves · Hábitat</div><div class="pgc-nm">Jaula Doble Puerta Grande</div>
+      <div class="pgc-foot"><span class="pgc-price">S/ 145.00</span><button class="add-btn" onclick="addToCart(this,'Jaula Doble Puerta',145.00,'🪺')">+</button></div></div>
+    </div>
+
+    <!-- PECES -->
+    <div class="pgc" data-cat="peces">
+      <div class="pgc-img">🐠</div>
+      <div class="pgc-body"><div class="pgc-cat">Peces · Alimento</div><div class="pgc-nm">Tetra Bits Granulado 200g</div>
+      <div class="pgc-foot"><span class="pgc-price">S/ 24.00</span><button class="add-btn" onclick="addToCart(this,'Tetra Bits 200g',24.00,'🐠')">+</button></div></div>
+    </div>
+    <div class="pgc" data-cat="peces">
+      <div class="pgc-img">🐟</div>
+      <div class="pgc-body"><div class="pgc-cat">Peces · Acuario</div><div class="pgc-nm">Acuario 20L + Filtro + Luz</div>
+      <div class="pgc-foot"><span class="pgc-price">S/ 220.00</span><button class="fav-btn" data-name="Acuario 20L Kit" onclick="toggleFav(this,'Acuario 20L Kit',220.00,'🐟','Peces · Acuario')">🤍</button></div></div>
+    </div>
+
+  </div>
+
+  <footer class="foot">
+    <div class="foot-logo">🐾 PET SHOP GOOFRY</div>
+    <div class="foot-sub">Tu tienda de mascotas de confianza en Lima</div>
+    <div class="foot-links">
+      <a href="index.html">Inicio</a><a href="servicios.html">Servicios</a>
+      <a href="favoritos.html">Favoritos</a><a href="perfil.html">Perfil</a>
+    </div>
+    <p class="foot-copy">© 2025 PET SHOP GOOFRY · Todos los derechos reservados</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"/>
+  <title>PET SHOP GOOFRY — Favoritos</title>
+  <link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+
+  <header class="topbar">
+    <a href="index.html" class="logo">
+      <div class="logo-icon">🐾</div>
+      <span class="logo-name">PET SHOP GOOFRY<small>Favoritos</small></span>
+    </a>
+    <div class="tb-right">
+      <button class="ib" onclick="openCart()">🛒<span class="bdg">0</span></button>
+    </div>
+  </header>
+
+  <!-- Renderizado dinámicamente por app.js -->
+  <div class="prod-grid" id="fav-grid"></div>
+
+  <div id="fav-empty" class="fav-empty" style="display:none">
+    <div class="fav-empty-ico">🤍</div>
+    <h3>Sin favoritos aún</h3>
+    <p>Guarda productos tocando el ❤️ en la tienda y aparecerán aquí.</p>
+    <a href="tienda.html" class="btn-main" style="max-width:220px;margin:0 auto">Ir a la tienda</a>
+  </div>
+
+  <footer class="foot">
+    <div class="foot-logo">🐾 PET SHOP GOOFRY</div>
+    <div class="foot-sub">Tu tienda de mascotas de confianza en Lima</div>
+    <div class="foot-links">
+      <a href="index.html">Inicio</a><a href="tienda.html">Tienda</a>
+      <a href="servicios.html">Servicios</a><a href="perfil.html">Perfil</a>
+    </div>
+    <p class="foot-copy">© 2025 PET SHOP GOOFRY · Todos los derechos reservados</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
